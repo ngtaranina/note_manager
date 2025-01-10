@@ -1,9 +1,9 @@
-username = 'Nataliya'
-title = 'first note'
-content = 'my new note'
-status = 'begin'
-created_date = '10.01.2025'
-issue_date = '10.02.2025'
+username = input("Введите Ваше имя: ")
+title = input("Введите название заметки: ")
+content = input("Введите содержание заметки: ")
+status = input("Введите статус заметки (запланировано, в работе, выполнено): ")
+created_date = input("Введите дату создания заметки в формате dd.mm.yyyy: ")
+issue_date = input("Введите дату дедлайна в формате dd.mm.yyyy: ")
 print(f'имя пользователя: {username}')
 print(f'название заметки: {title}')
 print(f'содержание заметки: {content}')
