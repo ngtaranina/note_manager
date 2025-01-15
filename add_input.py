@@ -14,6 +14,4 @@ print(f'дата создания заметки: {created_date}')
 print(f'дата окончания: {issue_date}')
 
 print('*'*30) # разделительная строка
-print('Измененные даты:')
-print(issue_date[:-5])
-print(created_date[:-5])
+print('Измененные даты:', issue_date[:-5], created_date[:-5], sep='\n' )
