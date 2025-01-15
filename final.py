@@ -1,14 +1,8 @@
 print(('Привет! Я могу помочь создать заметку'))
 list_note = []
-while input('Если хочешь создать заметку, введи "ok", если нет просто "Enter":  ' ).lower() == 'ok':
+while input('Если хочешь создать новую заметку, введи "ok", если нет - просто  нажми "Enter":  ' ).lower() == 'ok':
     username = input("Введите Ваше имя: ")
 
-    # title1 = input("Введите 1-е название заметки: ")
-    # title2 = input("Введите 2-е название заметки: ")
-    # title3 = input("Введите 3-е название заметки: ")
-    # title = [title1, title2, title3]
-
-    # Организация ввода дополнительного названия по желанию
     title = [input("Введите название заметки: ")]
     while input('Хотите добавить еще одно название? Тогда нажмите "пробел" и "Enter", иначе - просто "Enter"') == ' ':
         title.append(input("Введите следующее название заметки: "))
@@ -20,6 +14,7 @@ while input('Если хочешь создать заметку, введи "ok
 
     list_note.append([username, title, content, status, created_date, issue_date])
 
+    print('Итак, проверьте, все правильно?:')
     print([username, title, content, status, created_date[:-5], issue_date[:-5]])
 
 
