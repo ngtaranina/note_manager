@@ -32,11 +32,11 @@ if len(list_note):
     for i in range(len(list_note)):
         print('*'*40) # разделительная строка
         print(f'Заметка номер {i + 1}')
-        print(f'автор заметки  - username: {list_note[i][0]}')
-        print('Заголовки заметки (title): ')
+        print(f'автор заметки: {list_note[i][0]}')
+        print('Заголовки заметки: ')
         k = 1  # счетчик заголовков заметки
         for one_title in list_note[i][1]:
-            print(f'    название №{k}: {one_title}')
+            print(f'   {k})   {one_title}')
             k += 1
         print(f'содержание заметки: {list_note[i][2]}')
         print(f'статус заметки: {list_note[i][3]}')
