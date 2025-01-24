@@ -25,7 +25,7 @@ def check_exist_data(y, m, d):
 
 # основной блок программы
 while main_condition:
-    issue_date = input('Введи дату дедлайна в формате dd.mm.yyyy или dd/mm/yyyy:  ')
+    issue_date = input('Введи дату в формате dd.mm.yyyy или dd/mm/yyyy:  ')
     format_condition = check_format_data (issue_date)
     if format_condition:
         # Проверка на формат выполнена, создаем объект issue_date, как элемент datetime.datetime
