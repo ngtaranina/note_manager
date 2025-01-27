@@ -12,7 +12,8 @@ issue_date = input("Введите дату дедлайна в формате d
 
 print('*'*30) # Разделительная строка
 print(f'имя пользователя: {username}')
-print(f'названия заметки: {title}')
+for i in range(len(title)):
+    print(f'заголовок {i}:   {title[i]}')
 print(f'содержание заметки: {content}')
 print(f'статус заметки: {status}')
 print(f'дата создания заметки: {created_date}')
