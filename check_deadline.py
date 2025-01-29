@@ -1,6 +1,6 @@
-import datetime
+from datetime import date
 
-today = datetime.datetime.now() # сегодняшняя дата
+today = date.today() # сегодняшняя дата
 main_condition = True #  для организации цикла проверки правильного ввода даты
 issue_date = '' # переменная для хранения даты дедлайна
 
@@ -9,7 +9,7 @@ def check_format_data (dat: str):
     if len(dat) > 10:
         print('что-то очень длинная дата получилась')
         return False
-    if '.' in dat or '/' in dat:
+    if  dat.count('.') == 2 or dat.count('/') == 2:
         return True
     else:
         print('что-то не так в формате ввода даты')
@@ -18,10 +18,20 @@ def check_format_data (dat: str):
 # функция, которая будет проверять, что такая дата существует
 def check_exist_data(y, m, d):
     try:
-        datetime.datetime(y, m, d)
+        date(y, m, d)
         return True
     except:
         return False
+# определяем разницу между сегодняшней датой и датой дедлайна, если срок прошел, вернет 1
+def time_to_deadline(d):
+    delta = (d - today).days
+    if delta > 0:
+        print(f'до дедлайна осталось {delta} дн(я/ей) считая сегодняшний')
+    elif delta == 0:
+        print('Дедлайн сегодня! Торопись!')
+    else:
+        print('Хм! Сроки уже прошли. Эта дата просрочена. Нужно ввести другую!')
+        return (1)
 
 # основной блок программы
 while main_condition:
@@ -41,16 +51,12 @@ while main_condition:
         # теперь используем функцию проверки, и определяем существует ли такая дата
         exist_condition = check_exist_data(us_year, us_month, us_date)  # для организации цикла проверки существования даты
         if exist_condition:
-            issue_date = datetime.datetime(us_year, us_month, us_date)
-            main_condition = False
+            issue_date = date(us_year, us_month, us_date)
+            # создали дату теперь проверяем сколько дней до дедлайна
+            check = time_to_deadline(issue_date)
+            # если все в порядке, то main_condition станет = False и цикл прервется
+            main_condition = True if check else False
         else:
             print('Упс! Такой даты не существует!')
 
-# определяем разницу между сегодняшней датой и датой дедлайна
-delta = (issue_date - today).days + 1
-if delta > 0:
-    print(f'до дедлайна осталось {delta} дн(я/ей)')
-elif delta == 0:
-    print('Дедлайн сегодня! Торопись!')
-else:
-    print('Хм! Сроки уже прошли. Эта дата просрочена. Нужно ввести другую!')
+
