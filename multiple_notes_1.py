@@ -67,7 +67,7 @@ def check_input_date(day):
     while main_condition:
         format_condition = check_format_date(day)
         if format_condition:
-            # Проверка на формат выполнена, создаем объект day, как элемент date from datetime
+            # Проверка на формат выполнена, создаем объект day, как элемент dd from datetime
             # сначала выделяем значения дня, месяца и года
             if '.' in day:
                 day = day.split('.')

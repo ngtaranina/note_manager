@@ -1,4 +1,3 @@
-from pprint import pprint
 from datetime import date
 
 today = date.today()  # сегодняшняя дата
@@ -26,9 +25,9 @@ def check_format_date(dat: str):
 
 
 # функция, которая будет проверять, что такая дата существует
-def check_exist_date(y, m, d):
+def check_exist_date(yy, mm, dd):
     try:
-        date(y, m, d)
+        dd(yy, mm, dd)
         return True
     except:
         return False
@@ -67,7 +66,7 @@ def check_input_date(day):
     while main_condition:
         format_condition = check_format_date(day)
         if format_condition:
-            # Проверка на формат выполнена, создаем объект day, как элемент date from datetime
+            # Проверка на формат выполнена, создаем объект day, как элемент dd from datetime
             # сначала выделяем значения дня, месяца и года
             if '.' in day:
                 day = day.split('.')
